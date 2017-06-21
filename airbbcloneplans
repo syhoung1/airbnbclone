@@ -1,0 +1,45 @@
+As a user I want:
+	1.	to be able to sign up/in/out
+		use devise to set up a user model
+		have sign up/in/out options on the header
+	2.	have a role as a guest, host, or both
+		set up column for the user object to include role(s)
+	3.	to have a profile with my personal information
+		have a profile view
+
+As a airbnb guest I want:
+	1.	to see a list of places available to rent
+		create an index list will include a representative picture, price, and reviews
+	2.	to see a list of experiences to partake in
+	3.	to view a list of my upcoming trips
+	4.	to be able to view details on each available place to rent including:
+		a slide of photos of the place
+		link to the renter's profile
+		a map of the location
+		display reviews
+		displayratings
+	5.	to be able to view details on experiences
+		link to the renter's profile
+		a map of the location
+		display reviews
+		display ratings
+	6.	to be able to reach out to the persons renting out their place via message
+		have messaging system
+	7.	search for places to rent
+		by location
+		by dates
+			by number of guests
+	8.	make payments to the host
+		set up a payment gateway
+	9.	give homes and experiences a rating
+		create ratings based on a 5 star scale
+	10.	write a review for a home or exprience
+		create a review object for a home or experience
+	11.	become  a host
+		change the status of my account to host
+As an airbnb host I want:
+	1.	to list my place up for rent or list an experience to host
+		create a home or experience listing which includes price, location, photographs
+	2.	have a show view of the place I am renting
+	3.	to retract/edit a listing
+		edit/destroy listing
