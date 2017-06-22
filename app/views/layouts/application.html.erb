@@ -5,10 +5,75 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
+  <%= render "welcome/login_modal" %>
+  <%= render "welcome/sign_up_modal" %>
+  <div class="nav-bar">
+    <div class="brand-container">
+      <div class="logo-container">
+        <object type="image/svg+xml" data="icon_suitcase.svg"></object>
+      </div>
+    </div>
+    <div class="user-links">
+      <div class="links-container">
+        <ul class="links-list">
+          <li>
+            <div class="list-button">
+              <div class="button-container">
+                <a href="#", data-toggle="modal">
+                  <span>Become a Host</span>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-button">
+              <div class="button-container">
+                <a href="welcome#help", data-toggle="modal">
+                  <span>Help</span>
+                </a>
+              </div>
+            </div>
+          </li>
+          <% if current_user %>
+            <li>
+              <div class="list-button">
+                <div class="button-container">
+                  <a rel="nofollow" data-method="delete", href="users/sign_out" >
+                    <span>Log Out</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          <% else %>
+            <li>
+              <div class="list-button">
+                <div class="button-container">
+                  <a href="#sign_up", data-toggle="modal">
+                    <span>Sign Up</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="list-button">
+                <div class="button-container">
+                  <a href="#login", data-toggle="modal">
+                    <span>Log In</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

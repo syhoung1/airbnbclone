@@ -1,0 +1,101 @@
+/*
+ *= require_bootstrap-sprockets
+ */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'ionicons';
+
+.nav-bar {
+    position: absolute;
+    display: table;
+    width: 100%;
+    height: 105px;
+    border-bottom: 1px solid #e4e4e4
+}
+
+.brand-container {
+    display: table-cell;
+    vertical-align: middle;
+    height: 64px;
+    padding: 0;
+    left: 24px;
+}
+
+.logo-container {
+    position: relative;
+}
+
+.logo {
+    display: inline-block;
+}
+
+.user-links {
+    display: table-cell;
+    vertical-align: middle;
+    height: 64px;
+    float: right;
+}
+
+.links-list {
+    display: table;
+    vertical-align: middle;
+    float: right;
+}
+
+.links-container {
+    display: block;
+    vertical-align: middle;
+}
+
+.links-list li {
+    display: table-cell;
+}
+
+.list-button {
+    display: block;
+    position: relative;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+.list-button a {
+    display: inline-block;
+    padding: 0 16px;
+    margin: 0;
+    whitespace: nowrap;
+    height: 64px;
+    line-height: 64px;
+    color: #696969;
+}
+
+.list-button a span {
+    border-bottom: 2px solid transparent;
+}
+
+.list-button a:hover {
+    text-decoration: none;
+    color: #696969;
+}
+
+.list-button a:hover span {
+    border-bottom: 2px solid #696969;
+}
+
+.list-button a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.list-button a:active {
+    outline: 1.5px solid #86b3fe;
+}
+
+.button-container {
+    display: inline-block;
+}
+
+.button-container span {
+    padding: 8px 0;
+}
