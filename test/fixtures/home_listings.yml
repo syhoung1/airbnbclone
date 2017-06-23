@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  capacity: 1
+  bathrooms: 1.5
+  bedrooms: 1
+  beds: 1
+  checkin: 2017-06-23 17:31:38
+  checkout: 2017-06-23 17:31:38
+  rules: MyText
+  security_deposit: 1
+  cleaning_fee: 1
+  extra_person_fee: 1
+  amenities: MyText
+  min_stay: 1
+
+two:
+  title: MyString
+  capacity: 1
+  bathrooms: 1.5
+  bedrooms: 1
+  beds: 1
+  checkin: 2017-06-23 17:31:38
+  checkout: 2017-06-23 17:31:38
+  rules: MyText
+  security_deposit: 1
+  cleaning_fee: 1
+  extra_person_fee: 1
+  amenities: MyText
+  min_stay: 1

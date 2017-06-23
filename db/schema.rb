@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621155655) do
+ActiveRecord::Schema.define(version: 20170623185747) do
+
+  create_table "home_listings", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "capacity"
+    t.float    "bathrooms"
+    t.integer  "bedrooms"
+    t.integer  "beds"
+    t.time     "checkin"
+    t.time     "checkout"
+    t.text     "rules"
+    t.integer  "security_deposit"
+    t.integer  "cleaning_fee"
+    t.integer  "extra_person_fee"
+    t.text     "amenities",        default: "--- []\n"
+    t.integer  "min_stay"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.text     "about"
+    t.integer  "lessor_id"
+  end
+
+  add_index "home_listings", ["lessor_id"], name: "index_home_listings_on_lessor_id"
+
+  create_table "lessors", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "lessors", ["user_id"], name: "index_lessors_on_user_id"
+
+  create_table "tenants", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tenants", ["user_id"], name: "index_tenants_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
