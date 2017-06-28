@@ -3,7 +3,7 @@
     <div class="listings-container">
       <% @listings.each do |listing| %>
         <div class="listing">
-          <a href="<%= home_listings_show_path(listing) %>">
+          <a href="<%= home_listing_path(listing) %>">
             <img src="<%= asset_path('house.png') %>">
           </a>
           <a>
