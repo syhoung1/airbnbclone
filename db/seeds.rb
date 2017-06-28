@@ -36,3 +36,14 @@ end
     lessor: Lessor.all.sample
   )
 end
+
+home_listings = HomeListing.all
+
+home_listings.each do |listing|
+  Address.create(
+    longitude: Faker::Address.longitude,
+    latitude: Faker::Address.latitude,
+    address: Faker::Address.street_address,
+    home_listing: listing
+    )
+end
