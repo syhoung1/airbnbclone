@@ -1,5 +1,6 @@
 /*
  *= require_bootstrap-sprockets
+ *= require_bootstrap-datepicker
  */
 
 @import 'bootstrap-sprockets';
@@ -193,3 +194,254 @@
     right: 0;
 }
 
+.room-show-container {
+    padding-top: 105px;
+    width: 100%;
+}
+
+.room-cover-photo {
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 320px;
+    background: url('house.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.roomSlide img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.room-photos-modal {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .3);
+    position: fixed;
+    overflow: auto;
+    padding-top: 105px;
+    z-index: 1000;
+    top: 0;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 105vh;
+    margin: 0 auto;
+}
+
+.roomSlide {
+    display: none;
+}
+
+.modal-close {
+    font-size: 4.8em;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    z-index: 2000;
+    color: white;
+}
+
+.modal-close:hover {
+    cursor: pointer;
+}
+
+.next-photo,
+.prev-photo {
+    color: white;
+    position: absolute;
+    align-items: center;
+    font-size: 4.8em;
+    top: 50%;
+}
+
+.next-photo {
+    right: 0;
+}
+
+.next-photo:hover,
+.prev-photo:hover {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.view-photos-btn-container {
+    display: inline-block;
+    position: absolute;    
+    bottom: 20px;
+    left: 20px
+}
+
+.view-photos-btn {
+    display: inline-block;
+    
+}
+
+.details-container {
+    display: block;
+    width: 100%;
+}
+
+.details {
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0 auto;
+}
+
+.slide-number {
+    display: inline-block;
+    position: absolute;
+    color: white;
+}
+
+.content-container {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.two-thirds-container {
+    display: block;
+    position: relative;
+    width: 66%;
+    margin: 0;
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.one-third-container {
+    position: relative;
+    width: 34%;
+    margin: 0;
+    float: left;
+}
+
+.room-nav-container {
+    height: 60px;
+}
+.room-nav-bar {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.room-nav-bar a {
+    display: table;
+    height: 100%;
+    float: left;
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-right: 30px;
+    color: black;
+}
+
+.room-nav-bar a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.room-nav-bar a:focus,
+.room-nav-bar a:active {
+    color: #008489;
+    border-bottom: 2px solid #008489;
+}
+
+.room-nav-bar span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.booking-container {
+    position: absolute;
+    width: 315px;
+}
+
+.booking-price-container {
+    display: table;
+    width: 100%;
+    background: rgba(0, 0, 0, .7);
+    height: 45px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.booking-price {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.6em;
+    color: white;
+    font-weight: bold;
+}
+
+.booking-form {
+    padding: 20px;
+    min-height: 175px;
+    border: 1px solid #dce0e0;
+}
+
+.booking-input-row {
+    width: 100%;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.booking-col {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    margin-bottom: 30px;
+}
+
+.field {
+    display: block;
+    padding: 12px;
+    margin: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.checkin-label {
+    width: 100%;
+}
+
+.guest-input-button {
+    display: block;
+    width: 100%;
+    background: transparent;
+    outline: none;
+}
+
+.name-section {
+    display: block;
+    margin-top: 30px;
+    width: 83%;
+}
+
+.room-name {
+    font-size: 3em;
+    font-weight: 300;
+    color: rgba(0, 0, 0, .7);
+}
+
+.room-address {
+    color: rgba(0, 0, 0, .5);
+    font-size: 1.5em;
+}
+
+.host-avatar {
+    width: 17%;
+}
+
+.row-divider {
+    border: 0;
+    border-top: 1px solid #dce0e0;
+    margin-top: 17px;
+    margin-bottom: 17px;
+}

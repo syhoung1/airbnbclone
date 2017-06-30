@@ -19,6 +19,7 @@ gem 'validate_url'
 gem 'ionicons-rails'
 gem 'pundit'
 gem 'embedly'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'byebug'

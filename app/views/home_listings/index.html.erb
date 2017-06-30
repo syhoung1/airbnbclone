@@ -12,7 +12,7 @@
           <a class="prev-slide" onclick="previous()">
             <i class="ion-chevron-left"></i>
           </a>
-          <a class="next-slide" onclick="next">
+          <a class="next-slide" onclick="next()">
             <i class="ion-chevron-right"></i>
           </a>
           <a class="favorite"></a>
@@ -27,8 +27,8 @@
           var map;
           function initMap() {
               var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
+                center: {lat: 0, lng: 90.644},
+                zoom: 2
               });
               
               var lngList = JSON.parse('<%= @longitude %>');

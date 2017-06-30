@@ -1,0 +1,95 @@
+<div class="room-show-container">
+  <div class="room-cover-photo">
+    <div class="view-photos-btn-container">
+      <button class="view-photos-btn" onclick="openModal();">
+        View Photos
+      </button>
+    </div>
+  </div>
+  <div id="room-modal" class="room-photos-modal">
+    <span class="modal-close" onclick="closeModal()">x</span>
+    <div class="modal-content">
+      <div class="roomSlide">
+        <div class="slide-number">1/2</div>
+        <img src="<%= asset_path('house.png') %>">
+      </div>
+      <div class="roomSlide">
+        <div class="slide-number">2/2</div>
+        <img src="<%= asset_path('house1.png') %>">
+      </div>
+    </div>
+    <a class="prev-photo" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next-photo" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <div class="content-container">
+    <div class="two-thirds-container">
+      <div class="room-nav-container">
+        <div class="room-nav-bar">
+          <a href="#">
+            <span id="focus">Overview</span>
+          </a>
+          <a href="#">
+            <span>The host</span>
+          </a>
+          <a href="#">
+            <span>Review</span>
+          </a>
+          <a href="#">
+            <span>Location</span>
+          </a>
+        </div>
+      </div>
+      <div class="summary section">
+        <div class="name-section">
+          <div class="room-name">
+            <%= @listing.title %>
+          </div>
+          <div class="room-address">
+            <small>City, Country</small>
+          </div>
+        </div>
+        <div class="host-avatar">
+          <div class="host-icon"></div>
+          <div class="host-name"></div>
+        </div>
+      </div>
+      <hr class="row-divider">
+      <div class="room-details">
+      </div>
+    </div>
+    <div class="one-third-container">
+      <div class="booking-container">
+        <div class="booking-price-container">
+          <div class="booking-price">
+            <span>$100 per night</span>
+          </div>
+        </div>
+        <div class="booking-form">
+          <div class="booking-input-row">
+            <div class="booking-col">
+              <label class="checkin-label">Check In</label>
+              <input type="text" id="datepicker" class="field" placeholder="mm/dd/yy" data-provide='datepicker'>
+            </div>
+            <div class="booking-col">
+              <label class="checkin-label">Check Out</label>
+              <input type="text" id="datepicker" class="field" placeholder="mm/dd/yy" data-provide='datepicker'>
+            </div>
+          </div>
+          <div class="booking-input-row">
+            <div class="booking-col-full">
+              <label class="guest-input-label">Guests</label>
+              <button class="guest-input-button" type="button">Guests</button>
+              <div class="guest-input hide"></div>
+            </div>
+          </div>
+          <div class="booking-input-row">
+            <button type="submit" class="btn btn-primary btn-large btn-block">Request to book</button>
+          </div>
+          <div class="message">
+            <small>You won't be charged yet</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

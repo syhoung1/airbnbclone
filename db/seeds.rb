@@ -17,7 +17,7 @@ Tenant.create(user: renter)
   Lessor.create(user: User.all.sample)
 end
 
-5.times do
+20.times do
   HomeListing.create(
     title: Faker::LordOfTheRings.location,
     about: Faker::Lorem.paragraph(3, true, 2),

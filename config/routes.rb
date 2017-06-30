@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   
   resources :home_listings
   
-  root 'welcome#index'
+  root 'home_listings#index'
 end
