@@ -65,26 +65,28 @@
           </div>
         </div>
         <div class="booking-form">
-          <div class="booking-input-row">
-            <div class="booking-col">
-              <label class="checkin-label">Check In</label>
-              <input type="text" id="datepicker" class="field" placeholder="mm/dd/yy" data-provide='datepicker'>
+          <%= form_for [@listing, @booking] do |f| %>
+            <div class="booking-input-row">
+              <div class="booking-col">
+                <%= f.label :checkin, class: 'checkin-label' %>
+                <%= f.text_field :checkin, class: 'field datepicker', placeholder: 'yyyy/mm/dd', data: { provide: 'datepicker' } %>
+              </div>
+              <div class="booking-col">
+                <%= f.label :checkout, class: 'checkin-label' %>
+                <%= f.text_field :checkout, class: 'field datepicker', placeholder: 'yyyy/mm/dd', data: { provide: 'datepicker' } %>
+              </div>
             </div>
-            <div class="booking-col">
-              <label class="checkin-label">Check Out</label>
-              <input type="text" id="datepicker" class="field" placeholder="mm/dd/yy" data-provide='datepicker'>
+            <div class="booking-input-row">
+              <div class="booking-col-full">
+                <label class="guest-input-label">Guests</label>
+                <%= f.label :party_size, class: 'guest-input-label' %>
+                <%= f.number_field :party_size, class: 'guest-input' , min: 0 %>
+              </div>
             </div>
-          </div>
-          <div class="booking-input-row">
-            <div class="booking-col-full">
-              <label class="guest-input-label">Guests</label>
-              <button class="guest-input-button" type="button">Guests</button>
-              <div class="guest-input hide"></div>
+            <div class="booking-input-row">
+              <%= f.submit "Request to book", class: 'btn btn-primary btn-large btn-block' %>
             </div>
-          </div>
-          <div class="booking-input-row">
-            <button type="submit" class="btn btn-primary btn-large btn-block">Request to book</button>
-          </div>
+          <% end %>
           <div class="message">
             <small>You won't be charged yet</small>
           </div>

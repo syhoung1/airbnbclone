@@ -1,0 +1,5 @@
+<div class="requests-container">
+  <% @requests.each do |request| %>
+    <p><%= request.checkin %>, <%= request.tenant.user.firstname %></p>
+  <% end %>
+</div>

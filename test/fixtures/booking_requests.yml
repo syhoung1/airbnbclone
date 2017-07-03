@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home_listing_id: 
+  tenant_id: 
+  checkin: 2017-06-30
+  checkout: 2017-06-30
+  party_size: 1
+  pending: false
+
+two:
+  home_listing_id: 
+  tenant_id: 
+  checkin: 2017-06-30
+  checkout: 2017-06-30
+  party_size: 1
+  pending: false

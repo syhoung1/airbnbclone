@@ -13,21 +13,37 @@
   <div class="nav-bar">
     <div class="brand-container">
       <div class="logo-container">
-        <object type="image/svg+xml" data="icon_suitcase.svg"></object>
+        <a href="<%= home_listings_path %>">
+          <i class="ion-android-plane brand-logo"></i>
+        </a>
       </div>
     </div>
     <div class="user-links">
       <div class="links-container">
         <ul class="links-list">
-          <li>
-            <div class="list-button">
-              <div class="button-container">
-                <a href="#", data-toggle="modal">
-                  <span>Become a Host</span>
-                </a>
-              </div>
-            </div>
-          </li>
+          <% if current_user %>
+            <% if current_user.lessor %>
+              <li>
+                <div class="list-button">
+                  <div class="button-container">
+                    <a href="<%= home_listing_booking_requests_path(current_user.lessor.home_listing) %>">
+                      <span>Booking Requests</span>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          <% else %>
+              <li>
+                <div class="list-button">
+                  <div class="button-container">
+                    <a href="#", data-toggle="modal">
+                      <span>Become a Host</span>
+                    </a>
+                  </div>
+                </div>
+              </li>
+          <% end %>
           <li>
             <div class="list-button">
               <div class="button-container">
@@ -41,9 +57,7 @@
             <li>
               <div class="list-button">
                 <div class="button-container">
-                  <a rel="nofollow" data-method="delete", href="users/sign_out" >
-                    <span>Log Out</span>
-                  </a>
+                  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
                 </div>
               </div>
             </li>

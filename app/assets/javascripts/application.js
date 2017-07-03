@@ -66,7 +66,7 @@ $('document').ready(function(){
 });
 
 $('document').ready(function(){
-   $('#datepicker').datepicker({
-       format: 'mm/dd/yy'
+   $('.datepicker').datepicker({
+       format: 'yyyy/mm/dd'
    })
 });

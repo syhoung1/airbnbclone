@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  resources :home_listings
+  resources :home_listings do
+    resources :booking_requests
+  end
+  
+  resources :lessor
+  
+  get 'booking_requests/confirmed', to: 'booking_requests#confirmed'
   
   root 'home_listings#index'
 end
