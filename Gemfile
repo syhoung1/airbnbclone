@@ -20,6 +20,7 @@ gem 'ionicons-rails'
 gem 'pundit'
 gem 'embedly'
 gem 'bootstrap-datepicker-rails'
+gem 'wicked'
 
 group :development, :test do
   gem 'byebug'

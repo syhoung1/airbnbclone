@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :booking_requests
   end
   
+  resources :build
+  
+  
   resources :lessor
   
   get 'booking_requests/confirmed', to: 'booking_requests#confirmed'

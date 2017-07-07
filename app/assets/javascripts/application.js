@@ -59,14 +59,19 @@ function showSlide(n) {
         slides[slideIndex - 1].style.display = "block";
         console.log(slides[slideIndex - 1]);
     });
-};  
+}
 
 $('document').ready(function(){
    document.getElementById('focus').focus();
 });
 
-$('document').ready(function(){
-   $('.datepicker').datepicker({
-       format: 'yyyy/mm/dd'
-   })
+$(document).on('turbolinks:load', function(){
+   $('input[name="datepicker"]').daterangepicker({
+       autoUpdateInput: true,
+       singleDatePicker: true,
+       showDropdowns: true,
+       locale: {
+            format: 'YYYY/MM/DD'
+       }
+   });
 });
