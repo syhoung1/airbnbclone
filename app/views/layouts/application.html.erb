@@ -37,7 +37,7 @@
               <li>
                 <div class="list-button">
                   <div class="button-container">
-                    <%= link_to "Become a Host", build_index_path, method: :post %> 
+                    <%= link_to "Become a Host", build_path(:place_type) %>
                   </div>
                 </div>
               </li>
@@ -83,7 +83,7 @@
       </div>
     </div>
   </div>
-  
+
 
   <%= yield %>
 </body>

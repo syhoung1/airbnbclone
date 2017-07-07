@@ -1,0 +1,16 @@
+<div class="wizard">
+
+  <h2>Place type</h2>
+
+  <%= form_for @home_listing, url: build_path, method: :patch do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :capacity %>
+      <%= f.number_field :capacity %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>
