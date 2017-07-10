@@ -22,13 +22,26 @@
       <div class="links-container">
         <ul class="links-list">
           <% if current_user %>
-            <% if current_user.lessor %>
+            <% if current_user.lessor && current_user.lessor.home_listing %>
               <li>
                 <div class="list-button">
                   <div class="button-container">
                     <a href="<%= home_listing_booking_requests_path(current_user.lessor.home_listing) %>">
                       <span>Booking Requests</span>
                     </a>
+                    <%= link_to edit_home_listing_path(current_user.lessor.home_listing) do %>
+                      <span>Edit My Listing</span>
+                    <% end %>
+                  </div>
+                </div>
+              </li>
+            <% else %>
+              <li>
+                <div class="list-button">
+                  <div class="button-container">
+                    <%= link_to build_path(:place_type) do %>
+                      <span>Become a Host</span>
+                    <% end %>
                   </div>
                 </div>
               </li>
@@ -37,7 +50,9 @@
               <li>
                 <div class="list-button">
                   <div class="button-container">
-                    <%= link_to "Become a Host", build_index_path, method: :post %> 
+                    <a href="#sign_up", data-toggle="modal">
+                      <span>Become a Host</span>
+                    </a>
                   </div>
                 </div>
               </li>
@@ -55,7 +70,9 @@
             <li>
               <div class="list-button">
                 <div class="button-container">
-                  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <span>Sign Out</span>
+                  <% end %>
                 </div>
               </div>
             </li>

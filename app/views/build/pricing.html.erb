@@ -1,0 +1,7 @@
+<div class="room-show-container">
+  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+    <%= f.submit "Next" %>
+  <% end %>
+</div>

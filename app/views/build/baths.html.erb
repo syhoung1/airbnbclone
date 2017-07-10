@@ -1,0 +1,9 @@
+<div class="room-show-container">
+  <%= form_for @home_listing, url: wizard_path, method: :put do |f|%>
+    <%= f.label :bathrooms do %>
+      <p>How many bathrooms?</p>
+    <% end %>
+    <%= f.number_field :bathrooms %>
+    <%= f.submit "next" %>
+  <% end %>
+</div>

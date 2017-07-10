@@ -14,7 +14,8 @@
     display: table;
     width: 100%;
     height: 105px;
-    border-bottom: 1px solid #e4e4e4
+    border-bottom: 1px solid #e4e4e4;
+    padding: 0 10px;
 }
 
 .brand-container {
@@ -23,10 +24,20 @@
     height: 64px;
     padding: 0;
     left: 24px;
+    border-right: 2px solid gainsboro;
 }
 
 .logo-container {
     position: relative;
+}
+
+.logo-container a {
+    font-size: xx-large;
+    color: red;
+    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
 }
 
 .logo {
@@ -144,10 +155,6 @@
     cursor: pointer;
 }
 
-.map-container {
-    
-}
-
 .prev-slide,
 .next-slide {
     color: white;
@@ -194,9 +201,17 @@
     right: 0;
 }
 
-.room-show-container {
+.room-show-container,
+.confirmed-container {
     padding-top: 105px;
     width: 100%;
+}
+
+.confirmed-message {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
 }
 
 .room-cover-photo {
@@ -448,4 +463,12 @@
 
 .requests-container {
     padding-top: 105px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.edit-fields {
+    display: none;
 }

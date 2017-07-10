@@ -1,2 +1,30 @@
-<h1>HomeListings#edit</h1>
-<p>Find me in app/views/home_listings/edit.html.erb</p>
+<div class="room-show-container">
+  <%= form_for @home_listing do |f| %>
+    <div class="edit-field-container">
+      <%= f.label :photos do %>
+        <p>Upload Photos here</p>
+      <% end %>
+      <%= f.file_field :photos, multiple: true %>
+      <%= f.submit "Submit" %>
+      <%= @home_listing.title %>
+      <a class="edit-field">Edit</a>
+      <div class="edit-fields">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.submit "Submit", class: "edit-field-confirm" %>
+      </div>
+    </div>
+    <div class="edit-field-container">
+      <%= @home_listing.capacity %>
+      <a class="edit-field">Edit</a>
+      <div class="edit-fields">
+        <%= f.label :capacity %>
+        <%= f.number_field :capacity %>
+        <%= f.submit "Submit", class: "edit-field-confirm" %>
+      </div>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to "Remove this listing", home_listing_path(@home_listing), method: :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+</div>

@@ -17,6 +17,28 @@ class HomeListingsController < ApplicationController
   end
 
   def edit
+    @home_listing = current_user.lessor.home_listing
+  end
+  
+  def update
+    @home_listing = current_user.lessor.home_listing
+    @home_listing.update_attributes(home_params)
+    
+    if @home_listing.save
+      render :edit
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    @home_listing = current_user.lessor.home_listing
+    
+    if @home_listing.destroy 
+      redirect_to home_listings_path
+    else
+      render edit
+    end
   end
   
   private
@@ -25,4 +47,7 @@ class HomeListingsController < ApplicationController
     @page = params[:page] || 0
   end
   
+  def home_params
+    params.require(:home_listing).permit!
+  end
 end

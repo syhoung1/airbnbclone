@@ -1,0 +1,11 @@
+<div class="room-show-container">
+  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+    <%= f.label :place %>
+    <%= f.select :place, ['Home', 'Hotel', 'Something else'] %>
+    <%= f.label :property_type %>
+    <%= f.select :property_type, ['Apartment', 'House', 'Condo', 'Bed & Breakfast' 'Boutique Hotel' 'Other'] %>
+    <%= f.label :accommodation_situation %>
+    <%= f.select :accommodation_situation, ['Own Room', 'Entire Place', 'Shared Room'] %>
+    <%= f.submit "Next" %>
+  <% end %>
+</div>

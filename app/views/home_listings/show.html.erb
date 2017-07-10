@@ -73,13 +73,11 @@
         <div class="booking-form">
           <%= form_for [@listing, @booking] do |f| %>
             <div class="booking-input-row">
-              <div class="booking-col">
-                <%= f.label :checkin, class: 'checkin-label' %>
-                <%= f.text_field :checkin, class: 'field datepicker', name: 'datepicker', placeholder: 'yyyy/mm/dd' %>
-              </div>
-              <div class="booking-col">
-                <%= f.label :checkout, class: 'checkin-label' %>
-                <%= f.text_field :checkout, class: 'field datepicker', name: 'datepicker', placeholder: 'yyyy/mm/dd' %>
+              <div class="booking-col-full">
+                <%= label_tag :daterange, "Select your dates" %>
+                <%= text_field_tag :daterange %>
+                <%= f.hidden_field :checkin %>
+                <%= f.hidden_field :checkout %>
               </div>
             </div>
             <div class="booking-input-row">

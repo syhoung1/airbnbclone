@@ -1,0 +1,11 @@
+<div class="room-show-container">
+  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+    <%= f.label :photos do %>
+      <p>Upload Photos here</p>
+    <% end %>
+    <%= f.file_field :photos, multiple: true %>
+    <%= f.submit "Next" %>
+    <%= link_to "Skip", next_wizard_path %>
+  <% end %>
+</div>
+

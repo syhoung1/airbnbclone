@@ -21,6 +21,8 @@ gem 'pundit'
 gem 'embedly'
 gem 'bootstrap-datepicker-rails'
 gem 'wicked'
+gem 'geocoder'
+gem 'carrierwave', '~> 1.0'
 
 group :development, :test do
   gem 'byebug'

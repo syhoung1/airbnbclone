@@ -1,0 +1,9 @@
+<div class="room-show-container">
+  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+    <% shared_spaces.each do |space| %>
+      <%= f.label space %>
+      <%= f.check_box :shared_spaces, { multiple: true }, space, false %>
+    <% end %>
+    <%= f.submit "Next" %>
+  <% end %>
+</div>

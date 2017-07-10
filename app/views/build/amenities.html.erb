@@ -1,0 +1,9 @@
+<div class="room-show-container">
+  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+    <% amenities.each do |amenity| %>
+      <%= f.label amenity %>
+      <%= f.check_box :amenities, { multiple: true }, amenity, false %>
+    <% end %>
+    <%= f.submit "Next" %>
+  <% end %>
+</div>

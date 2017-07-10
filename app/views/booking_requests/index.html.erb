@@ -1,5 +1,14 @@
 <div class="requests-container">
   <% @requests.each do |request| %>
-    <p><%= request.checkin %>, <%= request.tenant.user.firstname %></p>
+    <h3><%= request.tenant.user.firstname %> <% request.tenant.user.lastname %> has requested to book your home from</h3>
+    <span><%= request.checkin.strftime("%B %d, %Y") %> to <%= request.checkout.strftime("%B %d, %Y") %></span>
+    <div class="accept-buttons-container">
+      <button class="btn accept">Accept</button>
+      <%= link_to home_listing_booking_request_path(request.home_listing, request), class: "btn", method: :delete do %>
+        <span>Accept this request</span>
+      <% end %>
+      <button class="btn reject" data-confirm="Deny this booking request?">Remove this request</button>
+    </div>
+    <hr class="row-divider">
   <% end %>
 </div>
