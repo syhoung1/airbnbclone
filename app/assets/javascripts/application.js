@@ -61,24 +61,15 @@ function showSlide(n) {
     });
 }
 
-$("document").ready(function(){
-   document.getElementById("focus").focus();
-});
-
 $(document).on("turbolinks:load", function() {
-    $(".accept").on("click", function(event) {
-        console.log("testing");
-    });
-});
-
-$(document).on('turbolinks:load', function() { 
+    
   $(".edit-field").on("click", function(event) {
     event.target.parentElement.lastElementChild.style.display ="block";
   });
-});
-
-$(document).on("turbolinks:load", function() {
   
+  $(".accept").on("click", function(event) {
+        console.log("testing");
+  });
   $("#daterange").daterangepicker({
       autoUpdateInput: true,
       autoApply: true,
@@ -89,4 +80,5 @@ $(document).on("turbolinks:load", function() {
       $("#booking_request_checkin").val(picker.startDate.format("YYYY-MM-DD"));
       $("#booking_request_checkout").val(picker.endDate.format("YYYY-MM-DD"));
   });
+  document.getElementById("focus").focus();
 });
