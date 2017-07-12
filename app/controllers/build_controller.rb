@@ -46,7 +46,7 @@ class BuildController < ApplicationController
       @home_listing.update_attributes(description_params)
     when :title
       @home_listing.update_attributes(title_params)
-    when :price
+    when :pricing
       @home_listing.update_attributes(price_params)
     end
     render_wizard @home_listing

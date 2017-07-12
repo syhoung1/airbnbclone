@@ -19,11 +19,20 @@ class BookingRequestsController < ApplicationController
   end
   
   def index
+    @tenant = current_user.tenant
     @listing = current_user.lessor.home_listing
     @requests = @listing.booking_requests
+    @tenant_requests = @tenant.booking_requests
+    
   end
 
-  
+  def update
+    @listing = current_user.lessor.home_listing
+    @request = @listing.booking_requests.find(params[:id])
+    
+    @request.update_attributes(pending: false)
+    redirect_to home_listing_booking_requests_path(@listing)
+  end
   
   private
   

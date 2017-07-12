@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708013117) do
+ActiveRecord::Schema.define(version: 20170711211305) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "home_listing_id"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20170708013117) do
   end
 
   add_index "addresses", ["home_listing_id"], name: "index_addresses_on_home_listing_id"
+
+  create_table "amounts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "booking_requests", force: :cascade do |t|
     t.integer  "home_listing_id"
@@ -69,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170708013117) do
     t.text     "summary"
     t.string   "good_for"
     t.integer  "price"
+    t.string   "photo"
     t.string   "photos"
   end
 

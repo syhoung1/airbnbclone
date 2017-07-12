@@ -23,6 +23,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'wicked'
 gem 'geocoder'
 gem 'carrierwave', '~> 1.0'
+gem 'stripe'
 
 group :development, :test do
   gem 'byebug'

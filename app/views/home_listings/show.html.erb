@@ -45,7 +45,7 @@
             <%= @listing.title %>
           </div>
           <div class="room-address">
-            <small>City, Country</small>
+            <small><%= @listing.address.city %>, <%= @listing.address.country %></small>
           </div>
         </div>
         <div class="host-avatar">
@@ -61,7 +61,13 @@
       <div class="booking-container">
         <div class="booking-price-container">
           <div class="booking-price">
-            <span>$100 per night</span>
+            <span>
+              <% if @listing.price %>
+                $<%= @listing.price %> per night
+              <% else %>
+                No price has been set yet!
+              <% end %>
+            </span>
           </div>
         </div>
         <div class="booking-form">

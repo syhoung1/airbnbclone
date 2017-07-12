@@ -19,7 +19,13 @@
           <div class="listing-info">
             <a href="<%= listing %>">
               <p class="home-title"><%= listing.title %></p>
-              <p class="home-description"><%= listing.amenities %></p>
+              <% listing.amenities.gsub(/[\/\"\]\[\\]/, "").split(', ').each do |amenity| %>
+                <% if listing.amenities.gsub(/[\/\"\]\[\\]/, "").split(', ').last == amenity %>
+                  <%= amenity %>
+                <% else %>
+                  <%= amenity + ',' %>
+                <% end %>
+              <% end %>
             </a>
           </div>
         </div>

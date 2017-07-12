@@ -4,11 +4,10 @@ Rails.application.routes.draw do
   resources :home_listings do
     resources :booking_requests
   end
-  
+
   resources :build
-  
-  
   resources :lessor
+  resources :charges, only: [:new, :create]
   
   get 'booking_requests/confirmed', to: 'booking_requests#confirmed'
   

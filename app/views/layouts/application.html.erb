@@ -25,13 +25,13 @@
       <div class="links-container">
         <ul class="links-list">
           <% if current_user %>
-            <% if current_user.lessor && current_user.lessor.home_listing %>
+            <% if (current_user.lessor && current_user.lessor.home_listing) || (current_user.tenant && current_user.tenant.booking_requests) %>
               <li>
                 <div class="list-button">
                   <div class="button-container">
-                    <a href="<%= home_listing_booking_requests_path(current_user.lessor.home_listing) %>">
+                    <%= link_to home_listing_booking_requests_path(current_user.lessor.home_listing) do %>
                       <span>Booking Requests</span>
-                    </a>
+                    <% end %>
                     <%= link_to edit_home_listing_path(current_user.lessor.home_listing) do %>
                       <span>Edit My Listing</span>
                     <% end %>
