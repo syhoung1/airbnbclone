@@ -44,7 +44,7 @@ function currentSlide(n) {
 function showSlide(n) {
     var i;
     console.log(document.getElementsByClassName("roomSlide"));
-    
+
     $("document").ready(function(){
         var slides = document.getElementsByClassName("roomSlide");
         if (n > slides.length) {
@@ -64,36 +64,29 @@ function showSlide(n) {
 $(document).on("turbolinks:load", function() {
   $("#payment-btn").on("click", function(e){
     e.preventDefault();
-    
+
     var amount = $("#price").html();
     amount *= 100;
-    
+
     console.log(amount);
   });
-  
+
   $(".edit-field").on("click", function(event) {
     event.target.parentElement.lastElementChild.style.display ="block";
   });
-  
+
   $("#daterange").daterangepicker({
       autoUpdateInput: true,
       autoApply: true,
       showDropdowns: true,
   });
-  
+
   $("#daterange").on("apply.daterangepicker", function(ev, picker){
       $("#booking_request_checkin").val(picker.startDate.format("YYYY-MM-DD"));
       $("#booking_request_checkout").val(picker.endDate.format("YYYY-MM-DD"));
+      var numDays = picker.endDate.diff(picker.startDate, 'days'));
+      $('#num_days').val(numDays);
+
   });
-  document.getElementById(".focus").focus();
 });
 
-// var handler = StripeCheckout.configure({
-//   key: "<%= Rails.configuration.stripe[:publishable_key] %>",
-//   name: "<%= request.home_listing.title %>",
-//   description: 'One-time payment',
-//   token: function(token) {
-//     $('input#stripeToken').val(token.id);
-//     $('form').submit();
-//   }
-// });

@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170711211305) do
     t.integer  "capacity"
     t.float    "bathrooms"
     t.integer  "bedrooms"
+    t.integer  "beds"
     t.time     "checkin"
     t.time     "checkout"
     t.text     "rules"
@@ -69,12 +70,10 @@ ActiveRecord::Schema.define(version: 20170711211305) do
     t.string   "place"
     t.string   "property_type"
     t.string   "accommodation_situation"
-    t.integer  "beds"
     t.text     "shared_spaces",           default: "--- []\n"
     t.text     "summary"
     t.string   "good_for"
     t.integer  "price"
-    t.string   "photo"
     t.string   "photos"
   end
 
