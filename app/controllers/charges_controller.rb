@@ -1,22 +1,26 @@
 class ChargesController < ApplicationController
   def create
-    customer = Stripe::Customer.create(
-      email = current_user.email,
-      card: params[:stripeToken]
-    )
-    
+
+    customer = Stripe::Customer.retrieve(params[:stripe_customer_id])
+
+    balance = customer.account_balance
     charge = Stripe::Charge.create(
-      customer = customer.id,
-      amount = params[:amount],
+      customer = params[:stripe_customer_id],
+      amount = balance,
       description: "Payment for rental",
       currency: 'usd'
     )
-    
+
+    if charge.paid?
+      customer.account_balance = 0
+      customer.save
+    end
+
     rescue Stripe::CardError => e
       flash[:alert] = e.message
       redirect_to new_charge_path
   end
-  
+
   def new
     @stripe_btn_data = {
       key: "#{ Rails.configuration.stripe[:publishable_key]}",
