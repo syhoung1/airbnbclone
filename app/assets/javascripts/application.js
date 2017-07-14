@@ -84,16 +84,8 @@ $(document).on("turbolinks:load", function() {
   $("#daterange").on("apply.daterangepicker", function(ev, picker){
       $("#booking_request_checkin").val(picker.startDate.format("YYYY-MM-DD"));
       $("#booking_request_checkout").val(picker.endDate.format("YYYY-MM-DD"));
+      var numDays = picker.endDate.diff(picker.startDate, 'days');
+      $("#num_days").val(numDays);
+      console.log($("#num_days").val());
   });
-  document.getElementById(".focus").focus();
 });
-
-// var handler = StripeCheckout.configure({
-//   key: "<%= Rails.configuration.stripe[:publishable_key] %>",
-//   name: "<%= request.home_listing.title %>",
-//   description: 'One-time payment',
-//   token: function(token) {
-//     $('input#stripeToken').val(token.id);
-//     $('form').submit();
-//   }
-// });

@@ -33,6 +33,7 @@ end
     extra_person_fee: Faker::Number.between(30, 100),
     amenities: Faker::Lorem.word,
     min_stay: Faker::Number.between(1, 7),
+    price: Faker::Number.between(30, 1000),
     lessor: Lessor.all.sample
   )
 end

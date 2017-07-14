@@ -1,9 +1,23 @@
 class BookingRequestsController < ApplicationController
+  require "stripe"
+  Stripe.api_key = Rails.configuration.stripe[:secret_key]
+  
   def create
     @listing = HomeListing.find(params[:home_listing_id])
     @booking = @listing.booking_requests.new(booking_request_params)
+    total_cost = params[:num_days]*@listing.price
+    @booking.cost = total_cost
     @tenant = Tenant.where(user: current_user).first_or_create
     @booking.tenant = @tenant
+    
+    
+    binding.pry
+    if !@tenant.stripe_customer_id
+      @tenant.stripe_customer_id = Stripe::Customer.create(
+        account_balance: total_cost,
+        email: @tenant.user.email
+      )
+    end
     
     if @booking.save
       redirect_to booking_requests_confirmed_path

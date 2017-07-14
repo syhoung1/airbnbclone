@@ -30,18 +30,7 @@
       <big>from <%= request.checkin.strftime("%B %d, %Y") %> to <%= request.checkout.strftime("%B %d, %Y") %></big>
       <div class="accept-buttons-container">
         <div class="accept-button-container">
-          <%= link_to "Make the Payment", new_charge_path, id: "payment-btn" %>
-          <script>
-            var handler = StripeCheckout.configure({
-              key: "<%= Rails.configuration.stripe[:publishable_key] %>",
-              name: "<%= request.home_listing.title %>",
-              description: 'One-time payment',
-              token: function(token) {
-              $('input#stripeToken').val(token.id);
-              $('form').submit();
-              }
-            });
-          </script>
+          <%=  %>
         </div>
         <button class="btn reject" data-confirm="Cancel this booking request?">Remove this request</button>
       </div>

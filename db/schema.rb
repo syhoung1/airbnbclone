@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711211305) do
+ActiveRecord::Schema.define(version: 20170713175031) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "home_listing_id"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170711211305) do
     t.boolean  "pending",         default: true
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "cost"
   end
 
   add_index "booking_requests", ["home_listing_id"], name: "index_booking_requests_on_home_listing_id"
@@ -90,8 +91,9 @@ ActiveRecord::Schema.define(version: 20170711211305) do
 
   create_table "tenants", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "stripe_customer_id", limit: 50
   end
 
   add_index "tenants", ["user_id"], name: "index_tenants_on_user_id"
