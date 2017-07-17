@@ -11,11 +11,11 @@
     <div class="modal-content">
       <div class="roomSlide">
         <div class="slide-number">1/2</div>
-        <img src="<%= asset_path('house.png') %>">
+        <img src="<%= asset_path("house.png") %>">
       </div>
       <div class="roomSlide">
         <div class="slide-number">2/2</div>
-        <img src="<%= asset_path('house1.png') %>">
+        <img src="<%= asset_path("house1.png") %>">
       </div>
     </div>
     <a class="prev-photo" onclick="plusSlides(-1)">&#10094;</a>
@@ -37,7 +37,7 @@
           </div>
           <% if (@listing.address.city && @listing.address.city != "") && (@listing.address.country && @listing.address.country != "") %>
             <div class="room-address">
-              <small><%= @listing.address.city.to_uppercase %>, <%= @listing.address.country.to_uppercase %></small>
+              <small><%= @listing.address.city %>, <%= @listing.address.country %></small>
             </div>
           <% end %>
         </div>
@@ -103,16 +103,16 @@
             <div class="booking-input-row">
               <div class="booking-col-full">
                 <label class="guest-input-label">Guests</label>
-                <%= f.label :party_size, class: 'guest-input-label' %>
-                <%= f.number_field :party_size, class: 'guest-input' , min: 0 %>
+                <%= f.label :party_size, class: "guest-input-label" %>
+                <%= f.number_field :party_size, class: "guest-input" , min: 0 %>
               </div>
             </div>
             <div class="booking-input-row">
-              <%= f.submit "Request to book", class: 'btn btn-primary btn-large btn-block' %>
+              <%= f.submit "Request to book", class: "btn btn-primary btn-large btn-block" %>
             </div>
           <% end %>
           <div class="message">
-            <small>You won't be charged yet</small>
+            <small>You won"t be charged yet</small>
           </div>
         </div>
       </div>

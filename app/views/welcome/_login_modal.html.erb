@@ -7,23 +7,29 @@
     <div class="modal-body">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true %>
+          <%= f.label :email do %>
+            <h3>Email</h3>
+          <% end %>
+          <%= f.email_field :email, autofocus: true, class: "modal-text-input" %>
         </div>
       
         <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+          <%= f.label :password do %>
+            <h3>Password</h3>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off", class: "modal-text-input" %>
         </div>
       
         <% if devise_mapping.rememberable? -%>
           <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.check_box :remember_me, class: "remember-me-check" %>
+            <%= f.label :remember_me, class: "remember-me" do %>
+              <h4>Remember me</h4>
+            <% end %>
           </div>
         <% end -%>
         <div class="actions">
-          <%= f.submit "Sign in" %>
+          <%= f.submit "Sign in", class: "submit-btn-modal" %>
         </div>
       <% end %>
     </div>

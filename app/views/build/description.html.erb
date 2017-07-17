@@ -4,11 +4,11 @@
       <%= f.label :summary do %>
         <h2>Description</h2>
       <% end %>
-      <%= f.text_area :summary, placeholder: "Describe the decor, light, what's nearby, etc...", rows: "6", cols: "60", class: 'text-input description' %>
+      <%= f.text_area :summary, placeholder: "Describe the decor, light, what's nearby, etc...", rows: "6", cols: "60", class: "text-input description" %>
       <%= f.label :good_for do %>
         <h2>Good For</h2>
       <% end %>
-      <%= f.select :good_for, ['Big Groups', 'Kids', 'Pets', 'Families'] %>
+      <%= f.select :good_for, ["Big Groups", "Kids", "Pets", "Families"] %>
       <%= f.submit "Next", class: "submit-btn" %>
     <% end %>
   </div>

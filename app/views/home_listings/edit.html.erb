@@ -1,14 +1,14 @@
 <div class="room-show-container">
   <div class="content-container text-center">
-    <%= form_for @home_listing do |f| %>
+    <%= form_for @home_listing, :html => { :multipart => true } do |f| %>
       <h1>Edit your listing</h1>
       <hr class="row-divider">
       <div class="edit-field-container">
         <%= f.label :photos do %>
           <h2>Upload Photos here</h2>
         <% end %>
-        <%= f.file_field :photos, multiple: true, class: 'file-input' %>
-        <%= f.submit "Submit", class: 'submit-btn' %>
+        <%= f.file_field :photos, multiple: true, class: "file-input" %>
+        <%= f.submit "Submit", class: "submit-btn" %>
       </div>
       <hr class="row-divider">
       <div class="edit-field-container">

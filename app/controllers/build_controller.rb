@@ -1,7 +1,6 @@
 class BuildController < ApplicationController
   include Wicked::Wizard
   
-  
   steps :place_type, :place_type2, :bedrooms, :baths, :location, :amenities, :shared_spaces, :photos, :description, :title, :pricing
   
   def edit

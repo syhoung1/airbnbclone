@@ -23,9 +23,11 @@ class HomeListingsController < ApplicationController
   
   def update
     @home_listing = current_user.lessor.home_listing
+    @home_listing.photos = params[:photos]
     @home_listing.update_attributes(home_params)
     
-    if @home_listing.save
+    if @home_listing.save!
+      binding.pry
       render :edit
     else
       render :edit
@@ -49,6 +51,6 @@ class HomeListingsController < ApplicationController
   end
   
   def home_params
-    params.require(:home_listing).permit!
+    params.require(:home_listing).permit(:title, :price, {photos: []})
   end
 end

@@ -334,12 +334,18 @@
     text-decoration: none;
 }
 
-.submit-btn {
+.submit-btn,
+.submit-btn-modal {
     background: white;
     border: 0;
     margin: 2em;
     font-size: large;
     font-weight: bold;
+}
+
+.submit-btn-modal {
+    width: 100%;
+    margin: 0 auto;
 }
 
 select,
@@ -571,4 +577,38 @@ select,
 
 .review-input {
     width: 100%;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.field {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.field input{
+    width: 100%;
+}
+
+.modal-text-input {
+    text-indent: 1em;
+    height: 2em;
+    font-size: 1.5em;
+}
+
+.sign-in {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.remember-me {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.remember-me-check {
+    height: 20px;
 }

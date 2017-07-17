@@ -39,6 +39,10 @@ home_listings.each do |listing|
     longitude: Faker::Address.longitude,
     latitude: Faker::Address.latitude,
     address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    country: Faker::Address.country,
+    zip_code: Faker::Address.zip,
     home_listing: listing
     )
 end

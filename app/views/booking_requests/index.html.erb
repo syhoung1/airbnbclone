@@ -1,4 +1,3 @@
-
 <div class="requests-container">
   <h2 class="section-name">Requests for my home</h2>
   <hr class="row-divider">
@@ -21,28 +20,26 @@
       <hr class="row-divider">
     <% end %>
   <% end %>
-  
   <h2 class="section-name">My booking requests</h2>
   <hr class="row-divider">
-
   <% @tenant_requests.each do |request| %>
     <% if request.pending == false %>
-      <h3>You've requested to book <%= request.home_listing.title %> for</h3>
+      <h3>You"ve requested to book <%= request.home_listing.title %> for</h3>
       $<div id="price" style="display: inline-block;"><%= request.home_listing.price %></div> per Night,
       <big>from <%= request.checkin.strftime("%B %d, %Y") %> to <%= request.checkout.strftime("%B %d, %Y") %></big>
       <div class="accept-buttons-container">
         <div class="accept-button-container">
           <%= link_to "Accept", new_charge_path(:request => request) %>
         </div>
-        <%= link_to "Remove this request", home_listing_booking_request_path(request.home_listing, request), method: :delete, class: 'btn destroy'%>
+        <%= link_to "Remove this request", home_listing_booking_request_path(request.home_listing, request), method: :delete, class: "btn destroy"%>
       </div>
       <hr class="row-divider">
     <% else %>
-      <h3>You've requested to book <%= request.home_listing.title %> from</h3>
+      <h3>You"ve requested to book <%= request.home_listing.title %> from</h3>
       <span><%= request.checkin.strftime("%B %d, %Y") %> to <%= request.checkout.strftime("%B %d, %Y") %></span>
       <div class="accept-buttons-container">
         <span class="request-waiting">Request not approved yet!</span>
-        <%= link_to "Remove this request", home_listing_booking_request_path(request.home_listing, request), method: :delete, class: 'btn destroy'%>
+        <%= link_to "Remove this request", home_listing_booking_request_path(request.home_listing, request), method: :delete, class: "btn destroy"%>
       </div>
       <hr class="row-divider">
     <% end %>
