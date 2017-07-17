@@ -27,7 +27,6 @@ class HomeListingsController < ApplicationController
     @home_listing.update_attributes(home_params)
     
     if @home_listing.save!
-      binding.pry
       render :edit
     else
       render :edit
