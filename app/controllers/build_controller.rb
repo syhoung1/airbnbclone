@@ -23,7 +23,6 @@ class BuildController < ApplicationController
   
   def update
     @home_listing = HomeListing.where(lessor: current_user.lessor).first
-    # @address = @home_listing.address
     
     case step
     when :place_type
@@ -37,9 +36,9 @@ class BuildController < ApplicationController
     when :location
       @home_listing.address.update_attributes(location_params)
     when :amenities
-      @home_listing.update_attributes(amenities_params)
+      @home_listing.update_attributes(amenities_params ||= {})
     when :shared_spaces
-      @home_listing.update_attributes(shared_spaces_params)
+      @home_listing.update_attributes(shared_spaces_params ||= {})
     when :photos
       @home_listing.update_attributes(photos_params)
     when :description

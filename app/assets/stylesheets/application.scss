@@ -320,6 +320,42 @@
     margin: 0 auto;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.edit-field {
+    color: black;
+    font-size: 2em;
+}
+
+.edit-field:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.submit-btn {
+    background: white;
+    border: 0;
+    margin: 2em;
+    font-size: large;
+    font-weight: bold;
+}
+
+select,
+.number-input,
+.text-input {
+    text-align-last: center;
+    margin: 4px;
+    display: block;
+    width: 20%;
+    font-size: large;
+    border: 0;
+    padding: 10px;
+    text-align: center;
+    margin: 10px auto;
+}
+
 .two-thirds-container {
     display: block;
     position: relative;
@@ -330,9 +366,50 @@
     padding-right: 8px;
 }
 
+.check-box-container input {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    margin: 20px 10px;
+    background: #fcfff4;
+}
+
+.check-box-container h3 {
+    margin: auto 0;
+}
+
+.check-submit-btn {
+    display: block;
+    clear: both;
+    margin: 0px auto;
+    padding: 50px;
+}
+
+.skip-btn {
+    border: 0;
+    color: #3B3732
+}
+
+.skip-btn:hover {
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    color: #3B3732;
+}
+
+.file-input {
+    margin: 0 auto;
+    padding: 30px;
+    font-size: large;
+}
+
+.description {
+    width: 30%;
+}
+
 .one-third-container {
     position: relative;
-    width: 34%;
+    width: 33%;
     margin: 0;
     float: left;
 }
@@ -454,6 +531,10 @@
     width: 17%;
 }
 
+.review-author {
+    font-weight: bold;
+}
+
 .row-divider {
     border: 0;
     border-top: 1px solid #dce0e0;
@@ -488,6 +569,6 @@
     color: gray;
 }
 
-.request-waiting {
-    
+.review-input {
+    width: 100%;
 }

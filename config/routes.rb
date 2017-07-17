@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   resources :home_listings do
     resources :booking_requests
+    resources :reviews
   end
 
   resources :build

@@ -1,7 +1,11 @@
 <div class="room-show-container">
-  <%= form_for @home_listing, url: wizard_path, method: :put do |f|%>
-    <%= f.label :place_type %>
-    <%= f.select :place_type, ['Entire Place', 'Private Room', 'Shared Room'] %>
-    <%= f.submit "next" %>
-  <% end %>
+  <div class="content-container text-center">
+    <%= form_for @home_listing, url: wizard_path, method: :put do |f|%>
+      <%= f.label :place_type do %>
+      <h2>This Listing is a(n)</h2>
+      <% end %>
+      <%= f.select :place_type, ['Entire Place', 'Private Room', 'Shared Room'] %>
+      <%= f.submit "Next", class: "submit-btn" %>
+    <% end %>
+  </div>
 </div>

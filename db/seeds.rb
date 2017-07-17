@@ -7,12 +7,6 @@
     )
 end
 
-renter = User.first
-lessor = User.find(2)
-
-Tenant.create(user: renter)
-
-
 5.times do
   Lessor.create(user: User.all.sample)
 end
@@ -47,4 +41,21 @@ home_listings.each do |listing|
     address: Faker::Address.street_address,
     home_listing: listing
     )
+end
+
+users = User.all
+
+10.times do
+  Tenant.create(
+    user: users.sample  
+  )
+end
+tenants = Tenant.all
+
+50.times do
+  Review.create(
+    home_listing: home_listings.sample,
+    tenant: tenants.sample,
+    description: Faker::Lorem.paragraph(3, true, 2)
+  )
 end

@@ -28,15 +28,6 @@
           <a href="#">
             <span id="focus">Overview</span>
           </a>
-          <a href="#">
-            <span>The host</span>
-          </a>
-          <a href="#">
-            <span>Review</span>
-          </a>
-          <a href="#">
-            <span>Location</span>
-          </a>
         </div>
       </div>
       <div class="summary section">
@@ -44,9 +35,11 @@
           <div class="room-name">
             <%= @listing.title %>
           </div>
-          <div class="room-address">
-            <small><%= @listing.address.city %>, <%= @listing.address.country %></small>
-          </div>
+          <% if (@listing.address.city && @listing.address.city != "") && (@listing.address.country && @listing.address.country != "") %>
+            <div class="room-address">
+              <small><%= @listing.address.city.to_uppercase %>, <%= @listing.address.country.to_uppercase %></small>
+            </div>
+          <% end %>
         </div>
         <div class="host-avatar">
           <div class="host-icon"></div>
@@ -55,6 +48,32 @@
       </div>
       <hr class="row-divider">
       <div class="room-details">
+        <h2>Reviews</h2>
+        <hr class="row-divider">
+        <% if current_user != @listing.lessor.user %>
+          <%= link_to new_home_listing_review_path(@listing), class: "review-link" do %>
+            <span>Write a review about <%= @listing.title %></span>
+          <% end %>
+        <% end %>
+        <hr class="row-divider">
+        <% if !@listing.reviews.empty? %>
+          <% @reviews.each do |review| %>
+            <div class="two-thirds-container">
+              <h3 class="review-author">
+                <%= review.tenant.user.firstname %> <%= review.tenant.user.lastname %> <large>wrote:</large>
+              </h3>
+              <%= review.description %>
+              <hr class="row-divider">
+              <% if review.tenant.user == current_user %>
+                <%= link_to home_listing_review_path(review.home_listing, review), method: :delete do %>
+                  <span>Delete this review</span>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <h3>No reviews about <%= @listing.title %> yet!</h3>
+        <% end %>
       </div>
     </div>
     <div class="one-third-container">

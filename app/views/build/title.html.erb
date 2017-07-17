@@ -1,7 +1,11 @@
 <div class="room-show-container">
-  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.submit "Next" %>
-  <% end %>
+  <div class="content-container text-center">
+    <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+      <%= f.label :title do %>
+        <h2>What is the name of your place?</h2>
+      <% end %>
+      <%= f.text_field :title, class: "text-input", placeholder: "e.g. Gondor" %>
+      <%= f.submit "Next", class: "submit-btn" %>
+    <% end %>
+  </div>
 </div>

@@ -25,7 +25,7 @@
       <div class="links-container">
         <ul class="links-list">
           <% if current_user %>
-            <% if (current_user.lessor && current_user.lessor.home_listing) || (current_user.tenant && current_user.tenant.booking_requests) %>
+            <% if (current_user.lessor && current_user.lessor.home_listing) %>
               <li>
                 <div class="list-button">
                   <div class="button-container">
@@ -37,6 +37,25 @@
                     <% end %>
                   </div>
                 </div>
+              </li>
+            <% elsif (current_user.tenant && current_user.tenant.booking_requests.any?) %>
+              <li>
+                <div class="list-button">
+                  <div class="button-container">
+                    <%= link_to home_listing_booking_requests_path(current_user.tenant.booking_requests.last.home_listing) do %>
+                      <span>Booking Requests</span>
+                    <% end %>
+                  </div>
+                </div>
+                <li>
+                <div class="list-button">
+                  <div class="button-container">
+                    <%= link_to build_path(:place_type) do %>
+                      <span>Become a Host</span>
+                    <% end %>
+                  </div>
+                </div>
+              </li>
               </li>
             <% else %>
               <li>

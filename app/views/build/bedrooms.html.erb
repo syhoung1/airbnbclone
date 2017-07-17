@@ -1,17 +1,19 @@
 <div class="room-show-container">
-  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
-    <%= f.label :capacity do %>
-      <p>How many guests can your place accommodate?</p>
+  <div class="content-container text-center">
+    <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+      <%= f.label :capacity do %>
+        <h2>How many guests can your place accommodate?</h2>
+      <% end %>
+      <%= f.number_field :capacity, class: "number-input", value: "0", min: 0 %>
+      <%= f.label :bedrooms do %>
+        <h2>How many bedrooms can your guests use?</h2>
+      <% end %>
+      <%= f.number_field :bedrooms, class: "number-input", value: "0", min: 0 %>
+      <%= f.label :beds do %>
+        <h2>How many beds can your guests use?</h2>
+      <% end %>
+      <%= f.number_field :beds, class: "number-input", value: "0", min: 0 %>
+      <%= f.submit "Next", class: 'submit-btn' %>
     <% end %>
-    <%= f.number_field :capacity %>
-    <%= f.label :bedrooms do %>
-      <p>How many bedrooms can your guests use?</p>
-    <% end %>
-    <%= f.number_field :bedrooms %>
-    <%= f.label :beds do %>
-      <p>How many beds can your guests use?</p>
-    <% end %>
-    <%= f.number_field :beds %>
-    <%= f.submit "Next" %>
-  <% end %>
+  </div>
 </div>

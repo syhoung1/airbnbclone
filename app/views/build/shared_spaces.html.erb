@@ -1,9 +1,15 @@
 <div class="room-show-container">
-  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
-    <% shared_spaces.each do |space| %>
-      <%= f.label space %>
-      <%= f.check_box :shared_spaces, { multiple: true }, space, false %>
+  <div class="content-container text-center">
+    <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+      <% shared_spaces.each do |space| %>
+        <div class="check-box-container one-third-container">
+          <%= f.label :shared_spaces do %>
+            <h3><%= space %></h3>
+          <% end %>
+          <%= f.check_box :shared_spaces, { multiple: true }, space, false %>
+        </div>
+      <% end %>
+      <%= f.submit "Next", class: 'submit-btn check-submit-btn' %>
     <% end %>
-    <%= f.submit "Next" %>
-  <% end %>
+  </div>
 </div>

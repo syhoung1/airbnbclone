@@ -1,0 +1,11 @@
+<div class="room-show-container">
+  <div class="content-container text-center">
+    <%= form_for [@listing, @review] do |f| %>
+      <%= f.label :description do %>
+        <span></span>
+      <% end %>
+      <%= f.text_area :description, rows: "10", columns: "50", placeholder: "Write your review here!", class: "text-input review-input" %>
+      <%= f.submit "Finished", class: "submit-btn" %>
+    <% end %>
+  </div>
+</div>

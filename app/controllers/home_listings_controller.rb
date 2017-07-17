@@ -14,8 +14,7 @@ class HomeListingsController < ApplicationController
   def show
     @listing = HomeListing.find(params[:id])
     @booking = @listing.booking_requests.new
-    
-    
+    @reviews = @listing.reviews
   end
 
   def edit

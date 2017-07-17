@@ -1,9 +1,15 @@
 <div class="room-show-container">
-  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
-    <% amenities.each do |amenity| %>
-      <%= f.label amenity %>
-      <%= f.check_box :amenities, { multiple: true }, amenity, false %>
+  <div class="content-container text-center">
+    <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+        <% amenities.each do |amenity| %>
+          <div class="check-box-container one-third-container">
+            <%= f.label :amenities do %>
+              <h3><%= amenity %></h3>
+            <% end %>
+            <%= f.check_box :amenities, { multiple: true }, amenity, false %>
+          </div>
+        <% end %>
+      <%= f.submit "Next", class: "submit-btn check-submit-btn" %>
     <% end %>
-    <%= f.submit "Next" %>
-  <% end %>
+  </div>
 </div>

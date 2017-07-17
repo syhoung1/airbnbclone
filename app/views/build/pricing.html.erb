@@ -1,7 +1,11 @@
 <div class="room-show-container">
-  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-    <%= f.submit "Next" %>
-  <% end %>
+  <div class="content-container text-center">
+    <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+      <%= f.label :price do %>
+        <h2>Price</h2>
+      <% end %>
+      <%= f.number_field :price, class: "number-input", value: "0" %>
+      <%= f.submit "Finish", class: "submit-btn" %>
+    <% end %>
+  </div>
 </div>

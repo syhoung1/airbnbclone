@@ -1,9 +1,15 @@
 <div class="room-show-container">
-  <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
-    <%= f.label :summary %>
-    <%= f.text_field :summary, placeholder: "Describe the decor, light, what's nearby, etc..." %>
-    <%= f.label :good_for %>
-    <%= f.select :good_for, ['Big Groups', 'Kids', 'Pets', 'Families'] %>
-    <%= f.submit "Next" %>
-  <% end %>
+  <div class="content-container text-center">
+    <%= form_for @home_listing, url: wizard_path, method: :put do |f| %>
+      <%= f.label :summary do %>
+        <h2>Description</h2>
+      <% end %>
+      <%= f.text_area :summary, placeholder: "Describe the decor, light, what's nearby, etc...", rows: "6", cols: "60", class: 'text-input description' %>
+      <%= f.label :good_for do %>
+        <h2>Good For</h2>
+      <% end %>
+      <%= f.select :good_for, ['Big Groups', 'Kids', 'Pets', 'Families'] %>
+      <%= f.submit "Next", class: "submit-btn" %>
+    <% end %>
+  </div>
 </div>

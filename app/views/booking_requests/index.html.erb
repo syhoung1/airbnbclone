@@ -2,27 +2,29 @@
 <div class="requests-container">
   <h2 class="section-name">Requests for my home</h2>
   <hr class="row-divider">
-  <% @requests.each do |request| %>
-    <h3><%= request.tenant.user.firstname %> <% request.tenant.user.lastname %> has requested to book your home from</h3>
-    <span><%= request.checkin.strftime("%B %d, %Y") %> to <%= request.checkout.strftime("%B %d, %Y") %></span>
-    <div class="accept-buttons-container">
-      <div class="accept-button-container">
-        <% if request.pending %>
-          <%= link_to home_listing_booking_request_path[request.home_listing, request] do %>
-            <span> "View this request", class:"btn accept" %> </span>
+  <% if @requests %>
+    <% @requests.each do |request| %>
+      <h3><%= request.tenant.user.firstname %> <% request.tenant.user.lastname %> has requested to book your home from</h3>
+      <span><%= request.checkin.strftime("%B %d, %Y") %> to <%= request.checkout.strftime("%B %d, %Y") %></span>
+      <div class="accept-buttons-container">
+        <div class="accept-button-container">
+          <% if request.pending %>
+            <%= link_to home_listing_booking_request_path[request.home_listing, request] do %>
+              <span> "View this request", class:"btn accept" %> </span>
+            <% end %>
+          <% else %>
+            <span class="btn" id="accepted">Accepted!</span>
           <% end %>
-        <% else %>
-          <span class="btn" id="accepted">Accepted!</span>
-        <% end %>
+        </div>
+        <button class="btn reject" data-confirm="Deny this booking request?">Remove this request</button>
       </div>
-      <button class="btn reject" data-confirm="Deny this booking request?">Remove this request</button>
-    </div>
-    <hr class="row-divider">
+      <hr class="row-divider">
+    <% end %>
   <% end %>
   
   <h2 class="section-name">My booking requests</h2>
   <hr class="row-divider">
-  
+
   <% @tenant_requests.each do |request| %>
     <% if request.pending == false %>
       <h3>You've requested to book <%= request.home_listing.title %> for</h3>
@@ -30,9 +32,9 @@
       <big>from <%= request.checkin.strftime("%B %d, %Y") %> to <%= request.checkout.strftime("%B %d, %Y") %></big>
       <div class="accept-buttons-container">
         <div class="accept-button-container">
-          <%=  %>
+          <%= link_to "Accept", new_charge_path(:request => request) %>
         </div>
-        <button class="btn reject" data-confirm="Cancel this booking request?">Remove this request</button>
+        <%= link_to "Remove this request", home_listing_booking_request_path(request.home_listing, request), method: :delete, class: 'btn destroy'%>
       </div>
       <hr class="row-divider">
     <% else %>
@@ -40,7 +42,7 @@
       <span><%= request.checkin.strftime("%B %d, %Y") %> to <%= request.checkout.strftime("%B %d, %Y") %></span>
       <div class="accept-buttons-container">
         <span class="request-waiting">Request not approved yet!</span>
-        <button class="btn reject" data-confirm="Cancel this booking request?">Remove this request</button>
+        <%= link_to "Remove this request", home_listing_booking_request_path(request.home_listing, request), method: :delete, class: 'btn destroy'%>
       </div>
       <hr class="row-divider">
     <% end %>
